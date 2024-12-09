@@ -30,4 +30,12 @@ public class OrderListRepo implements OrderRepo{
             }
         }
     }
+
+    @Override
+    public List<Order> findAllOrders(OrderStatus status) {
+        return orders.stream()
+                .filter(order ->order.status() == status)
+                .toList();
+    }
 }
+
